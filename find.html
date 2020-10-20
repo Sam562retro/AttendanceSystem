@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Result</title>
+    <style>
+         * {
+                box-sizing: border-box;
+                outline: none;
+            }
+
+            *:focus {
+                outline: none;
+            }
+            body {
+                font-family: Arial;
+                background-color: #3498DB;
+                padding: 50px;
+            }
+            .container {
+                margin: 20px auto;
+                width: 400px;
+                text-align: left;
+                background-color: #FFF;
+                padding: 20px;
+                border-radius: 5px
+            }
+            .app-title-big{
+                text-align: center;
+                color: #777;
+            }
+            .app-title {
+                text-align: left;
+                color: #777;
+            }
+            .control-group {
+                margin-bottom: 10px;
+            }
+            .btn {
+                border: 2px solid transparent;
+                background: #3498DB;
+                color: #ffffff;
+                font-size: 16px;
+                line-height: 25px;
+                padding: 10px 0;
+                text-decoration: none;
+                text-shadow: none;
+                border-radius: 3px;
+                box-shadow: none;
+                transition: 0.25s;
+                display: block;
+                width: 250px;
+                margin: 5px;
+                margin-left: 20%;
+            }
+
+            .btn:hover {
+                background-color: #2980B9;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+<div class="container">
+    {% if results == None %}
+        <h1 class="app-title-big">No Such Entry Found</h1>
+    {% else %}
+        <h1 class="app-title-big">The Entry Found:  </h1>
+        <h4 class="app-title">Date: {{results.day}} / {{results.month}} / {{results.year}}</h4>
+        <h4 class="app-title">Subject: {{results.sub}}</h4>
+        <h4 class="app-title">No. Of Absentees: {{results.no_absentees}}</h4>
+        <h4 class="app-title">Absentees: {{results.absentees}}</h4>
+    {% endif %}
+        <input type="button" value="Make a new entry" class="btn" onclick="location.href='http://127.0.0.1:5000/new_entry'">
+        <input type="button" value="See another entry" class="btn" onclick="location.href='http://127.0.0.1:5000/past_attendance'">
+        <input type="button" value="Log Out" class="btn" onclick="location.href='http://127.0.0.1:5000/logout'">
+    </div>
+</body>
+</html>
